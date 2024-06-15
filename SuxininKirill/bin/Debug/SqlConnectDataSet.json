@@ -1,0 +1,17 @@
+{
+	"Server":{
+		
+		"Invoke":"Windows",
+		"Ubuntu/Linux":{
+			"Server":"94.198.219.129",
+			"IdUser":"root",
+			"Password":"HEREPASSWORD",
+			"Database":"MountClub"
+		},
+		"Windows":{
+			"DataSource":"DESKTOP-4GCJKOE",
+			"InitialCatalog":"MountClub",
+			"IntegratedSecurity": "True"
+		}
+	}
+}

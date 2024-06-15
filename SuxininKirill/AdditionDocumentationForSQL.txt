@@ -1,0 +1,14 @@
+﻿Для обобщений использую спец. запрос для получения информации таблицы.
+Пример:
+Select COLUMN_NAME,DATE_TYPE From INFORMATION_SCHEME.COLUMNS Where TABLE_NAME = 'USER'
+На выходе получим след.столбец:
+ID_USER|int
+Login|varchar
+Password|varchar
+Roly|varchar
+
+Для таблиц на Винде используется dbo схема.
+
+Для базы на Linux/Ubuntu мы используем запрос:
+USE MountClub;
+SHOW TABLES;

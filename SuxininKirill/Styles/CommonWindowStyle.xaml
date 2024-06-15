@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI">
+
+    <Style TargetType="adonisControls:AdonisWindow" x:Key="CommonWindow">
+        <Setter Property="TitleBarBackground">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0.1,0">
+                    <GradientStop Color="#2ca9a1"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Icon" Value="pack://application:,,,/Resources/photo_NONBACK2024-05-27_16-32-03.png"/>
+        <Setter Property="FontFamily" Value="Times New Roman"/>
+    </Style>
+    
+    
+</ResourceDictionary>

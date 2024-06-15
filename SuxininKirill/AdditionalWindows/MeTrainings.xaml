@@ -1,0 +1,50 @@
+﻿<adonisControls:AdonisWindow x:Class="SuxininKirill.AdditionalWindows.MeTrainings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:adonisUI="clr-namespace:AdonisUI;assembly=AdonisUI"
+xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuxininKirill.AdditionalWindows"
+        mc:Ignorable="d"
+        Title="Мои тренинги" Name="ThisWindow" WindowStartupLocation="CenterOwner" Style="{StaticResource CommonWindow}" Height="450" Width="800">
+    <Grid>
+        <Button Content="Назад" HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding Back}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+        <ListBox Name="list" HorizontalAlignment="Stretch" Margin="0 0 500 0" ItemsSource="{Binding MeTrainings}" VerticalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <Image HorizontalAlignment="Left" Width="40" Height="40" Source="pack://application:,,,/Resources/photo_2024-05-27_16-32-03.png"/>
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding Name_Trainings}"/>
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding Date_Trainings}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Right" Width="505">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="500">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Название тренинга: "/>
+                <TextBlock Text="{Binding ElementName=list,Path=SelectedItem.Name_Trainings}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <TextBlock Text="Дата тренинга: "/>
+                <TextBlock Text="{Binding ElementName=list,Path=SelectedItem.Date_Trainings}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <TextBlock Text="Имя инструктора: "/>
+                <TextBlock Text="{Binding ElementName=list,Path=SelectedItem.Name_Instructor}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <TextBlock Text="Квалификация инструктора: "/>
+                <TextBlock Text="{Binding ElementName=list,Path=SelectedItem.Qualification}"/>
+            </StackPanel>
+        </StackPanel>
+        </Border>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Записаться на тренинг" Command="{Binding SignUp}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+
+        <Button Content="Отписаться от тренинга" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 150 0" Command="{Binding UnSignUp}" CommandParameter="{Binding ElementName=list,Path=SelectedItem.ID_Trainings}"/>
+
+
+    </Grid>
+</adonisControls:AdonisWindow>

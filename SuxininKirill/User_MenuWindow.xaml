@@ -1,0 +1,48 @@
+﻿<adonisControls:AdonisWindow x:Class="SuxininKirill.User_MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisUI="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:local="clr-namespace:SuxininKirill"
+        mc:Ignorable="d"
+        Title="Пользователь" WindowStartupLocation="CenterOwner" Style="{StaticResource CommonWindow}" Name="ThisWindow" Height="450" Width="800">
+    <adonisControls:AdonisWindow.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Resources/background_blue.jpg"/>
+    </adonisControls:AdonisWindow.Background>
+    <Grid>
+        <Button Command="{Binding Back}" CommandParameter="{Binding ElementName=ThisWindow}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Назад"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top"  Background="Transparent" Content="Личный кабинет" Command="{Binding MeAccount}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+        <ListBox Margin="400 50 50 50" ItemsSource="{Binding CommonButton}" VerticalAlignment="Stretch">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" Width="300" MaxWidth="500"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Button Margin="0 5 0 0" Content="{Binding Text}" Tag="{Binding Table}" Command="{Binding OpenCommon}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <StackPanel Margin="0 50 0 50" HorizontalAlignment="Left">
+            <Button Content="Мои экспедиции" Command="{Binding MeExpedition}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+            <Button Content="Мои тренинги" Command="{Binding MeTrainings}" CommandParameter="{Binding ElementName=ThisWindow}" Margin="0 5 0 0"/>
+        </StackPanel>
+    </Grid>
+</adonisControls:AdonisWindow>

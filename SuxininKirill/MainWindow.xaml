@@ -1,0 +1,57 @@
+﻿<adonisControls:AdonisWindow x:Class="SuxininKirill.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuxininKirill"
+        xmlns:adonisUI="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        mc:Ignorable="d"
+        Title="Титульный лист" Foreground="WhiteSmoke" Background="#2ca9a1" Height="450" WindowStartupLocation="CenterScreen" Width="800" Style="{StaticResource CommonWindow}" ResizeMode="NoResize" Name="ThisWindow">
+    <adonisControls:AdonisWindow.Resources>
+        <Style x:Key="HoverME" TargetType="StackPanel">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </adonisControls:AdonisWindow.Resources>
+
+    <Grid>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top">
+            Курсовая работа на тему "Альпинистский клуб"
+        </TextBlock>
+        <Image Source="pack://application:,,,/Resources/photo_NONBACK2024-05-27_16-32-03.png"/>
+        <Button Command="{Binding OpenAuth}" Height="30" CommandParameter="{Binding ElementName=ThisWindow}" Margin="0 0 0 250" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Авторизация">
+            
+        </Button>
+        <TextBox Foreground="White" Style="{DynamicResource {x:Static adonisUI:Styles.SelectableTextBlockTextBox}}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="Сухинин Кирилл. П-36. 2024г"/>
+        <TextBox Foreground="White" Style="{DynamicResource {x:Static adonisUI:Styles.SelectableTextBlockTextBox}}" HorizontalAlignment="Left" Text="{Binding StatusConnect}" VerticalAlignment="Bottom" Margin="0 0 0 50">
+        </TextBox>
+        <TextBox Foreground="White" Style="{DynamicResource {x:Static adonisUI:Styles.SelectableTextBlockTextBox}}" HorizontalAlignment="Left" Text="{Binding Server}" VerticalAlignment="Bottom" Margin="0 0 0 30"/>
+
+
+        <StackPanel Style="{StaticResource HoverME}" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <StackPanel.InputBindings>
+                <MouseBinding Command="{Binding GoGithub}" CommandParameter="{Binding ElementName=ThisWindow}" MouseAction="LeftClick"/>
+            </StackPanel.InputBindings>
+            <Image Width="30" Height="30" Source="pack://application:,,,/Resources/github_original_wordmark_logo_icon_146506.png"/>
+            <TextBlock VerticalAlignment="Center" Text="SuxininKirill"/>
+        </StackPanel>
+
+
+        <ContentControl Visibility="{Binding IsLoading}" VerticalAlignment="Top" HorizontalAlignment="Right" ContentTemplate="{DynamicResource {x:Static adonisUI:Templates.LoadingBars}}"
+                Foreground="{DynamicResource {x:Static adonisUI:Brushes.ForegroundBrush}}"
+                Width="35"
+                Height="35"
+                Focusable="False"/>
+
+        <ComboBox Name="ComboBoxTheme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100">
+            <ComboBoxItem Content="Тёмная тема" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="Светлая тема" Selected="ComboBoxItem_Selected_1"/>
+        </ComboBox>
+    </Grid>
+</adonisControls:AdonisWindow>

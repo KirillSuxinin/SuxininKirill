@@ -1,0 +1,67 @@
+﻿<adonisControls:AdonisWindow x:Class="SuxininKirill.TableCommonSortedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:adonisUI="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuxininKirill"
+        mc:Ignorable="d"
+        Title="{Binding MeTitle}" Name="ThisWindow" Style="{StaticResource CommonWindow}" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Command="{Binding Back}" CommandParameter="{Binding ElementName=ThisWindow}"  Content="Назад"/>
+            <Button Margin="5 0 0 0" Name="ChangeTablebtn" Content="Выбрать таблицу" Command="{Binding ChangeTable}" CommandParameter="{Binding ElementName=ChangeTablebtn}"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 20 140 50">
+
+            <DataGrid ItemsSource="{Binding MeTableGrid}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" Name="MeGrid" >
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Копировать [;]" Command="{Binding CopyIn}" CommandParameter=";"/>
+                        <MenuItem Header="Копировать [ ]" Command="{Binding CopyIn}"  CommandParameter=" "/>
+                        <MenuItem Header="Копировать [,]" Command="{Binding CopyIn}"  CommandParameter=","/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="140" VerticalAlignment="Stretch">
+
+            <ListBox BorderBrush="Gray" BorderThickness="1" ItemsSource="{Binding SortElement}" SelectedIndex="{Binding SelectIndex}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ColumnName}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <RadioButton Margin="0 10 0 0" Content="По убыванию" IsChecked="{Binding ByDES}"/>
+            <RadioButton Margin="0 10 0 0" Content="По возрастанию" IsChecked="{Binding ByASC}"/>
+
+            <Button Margin="0 15 0 0" HorizontalAlignment="Stretch" Content="Сортировать" Command="{Binding InvokeSORT}" CommandParameter="{Binding ElementName=MeGrid}"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="50">
+            <TextBlock VerticalAlignment="Center" Text="Критерий:"/>
+            <ComboBox Margin="5 0 0 0" VerticalAlignment="Center" ItemsSource="{Binding CategoryFind}" SelectedItem="{Binding CategorySelect}">
+                
+            </ComboBox>
+
+            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Текст:"/>
+            <TextBox Name="txt_find" VerticalAlignment="Center" Width="200" Margin="5 0 0 0"/>
+            <Button Command="{Binding InvokeSqlFind}" Margin="5 0 0 0" Content="Поиск" VerticalAlignment="Center" CommandParameter="{Binding ElementName=txt_find,Path=Text}"/>
+            <Button Command="{Binding InvokeSeeAll}" Margin="10 0 0 0" Content="Показать всё" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <ContentControl Visibility="{Binding IsLoading}" VerticalAlignment="Bottom" HorizontalAlignment="Right" ContentTemplate="{DynamicResource {x:Static adonisUI:Templates.LoadingDots}}"
+                Foreground="{DynamicResource {x:Static adonisUI:Brushes.ForegroundBrush}}"
+                Width="35"
+                Height="35"
+                Focusable="False"/>
+
+
+    </Grid>
+</adonisControls:AdonisWindow>

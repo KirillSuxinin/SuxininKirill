@@ -1,0 +1,153 @@
+{
+	"Rus":[
+	
+	{
+		"Row":"ID_Instructor",
+		"Text":"ИД инструктора"
+	},
+	{
+		"Row":"Name_Instrucor",
+		"Text":"Имя инструктора"
+	},
+	{
+		"Row":"Qualification",
+		"Text":"Квалификация"
+	},
+	{
+		"Row":"Experience",
+		"Text":"Опыт"
+	},
+	{
+		"Row":"ID_Climbing",
+		"Text":"Код"
+	},
+	{
+		"Row":"ID_Member",
+		"Text":"Ключ участника"
+	},
+	{
+		"Row":"ID_Equipment",
+		"Text":"Ключ снаряжения"
+	},
+	{
+		"Row":"Name_Equipment",
+		"Text":"Название"
+	},
+	{
+		"Row":"Type_Equipment",
+		"Text":"Тип снаряжения"
+	},
+	{
+		"Row":"Amount_Equipment",
+		"Text":"Количество"
+	},
+	{
+		"Row":"ID_Warehouse",
+		"Text":"Ключ склада"
+	},
+	{
+		"Row":"ID_Event",
+		"Text":"Ключ мероприятия"
+	},
+	{
+		"Row":"Name_Event",
+		"Text":"Название"
+	},
+	{
+		"Row":"Date_Event",
+		"Text":"Дата мероприятия"
+	},
+	{
+		"Row":"Location_Meet",
+		"Text":"Место проведения"
+	},
+	{
+		"Row":"ID_Expedition",
+		"Text":"Ключ экспедиции"
+	},
+	{
+		"Row":"Name_Expedition",
+		"Text":"Название экспедиции"
+	},
+	{
+		"Row":"Date_Start",
+		"Text":"Дата начала"
+	},
+	{
+		"Row":"Date_Finish",
+		"Text":"Дата окончания"
+	},
+	{
+		"Row":"ID_Route",
+		"Text":"Маршрут"
+	},
+	{
+		"Row":"ID_Mount",
+		"Text":"Ключ горы"
+	},
+	{
+		"Row":"Name_Mount",
+		"Text":"Название горы"
+	},
+	{
+		"Row":"Height_Mount",
+		"Text":"Высота горы"
+	},
+	{
+		"Row":"Location",
+		"Text":"Расположение"
+	},
+	{
+		"Row":"Name_Route",
+		"Text":"Имя маршрута"
+	},
+	{
+		"Row":"Description_Route",
+		"Text":"Описание маршрута"
+	},
+	{
+		"Row":"Level_Dange",
+		"Text":"Уровень сложности"
+	},
+	{
+		"Row":"Location_End",
+		"Text":"Место назначения"
+	},
+	{
+		"Row":"ID_Trainings",
+		"Text":"Ключ тренинга"
+	},
+	{
+		"Row":"Name_Trainings",
+		"Text":"Названия тренинга"
+	},
+	{
+		"Row":"Date_Trainings",
+		"Text":"Дата проведения"
+	},
+		{
+			"Row": "Date_Climbing",
+			"Text": "Дата восхождения"
+		},
+		{
+			"Row": "Name_Member",
+			"Text": "Имя участника"
+		},
+		{
+			"Row": "Address",
+			"Text": "Адрес"
+		},
+		{
+			"Row": "Number",
+			"Text": "Номер"
+		},
+		{
+			"Row": "Email",
+			"Text": "Почта"
+		},
+		{
+			"Row": "DateJoin",
+			"Text": "Дата вступления"
+		}
+	]
+}
